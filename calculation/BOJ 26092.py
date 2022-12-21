@@ -10,7 +10,7 @@ def factorization(n):
     return factors
 
 a,b=map(int,input().split())
-aList,bList=[a,1],[b,1]
+aList,bList=[a],[b]
 for i in factorization(a):
     aList.append(a//i)
     a/=i
