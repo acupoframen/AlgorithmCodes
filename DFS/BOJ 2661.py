@@ -5,7 +5,8 @@ def goodCheck(arr):
     return True
 def dfs(arr,idx):
     if idx==n:
-        print(''.join(str(i) for i in arr))
+        arr=list(map(str,arr))
+        print(''.join(arr ))
         exit()
     for i in range(1,4):
         if goodCheck(arr+[i]):
