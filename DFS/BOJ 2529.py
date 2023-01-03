@@ -20,4 +20,3 @@ def dfs(count,temp):
 dfs(0,"")
 print(answer[-1])
 print(answer[0])
-print(answer)
