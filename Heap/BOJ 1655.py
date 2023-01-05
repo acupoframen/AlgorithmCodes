@@ -11,8 +11,8 @@ for i in range(n):
     else:
         heapq.heappush(maxHeap, num)
     if maxHeap and -minHeap[0]>maxHeap[0]:
-        a=heapq.heappop(minHeap,minHeap[0])
-        b=heapq.heappop(maxHeap,maxHeap[0])
+        a=heapq.heappop(minHeap)
+        b=heapq.heappop(maxHeap)
         heapq.heappush(minHeap,-b)
         heapq.heappush(maxHeap,-a)
     print(-minHeap[0])
