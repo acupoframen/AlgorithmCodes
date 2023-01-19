@@ -8,7 +8,7 @@ def dfs(v,i):
     elif visited[w] and w==i:
         result.append(w)
 n=int(input())
-data=[0]+[int(input()) for _ in range(n))]
+data=[0]+[int(input()) for _ in range(n)]
 result=[]
 for i in range(1,n+1):
     visited=[False]*(n+1)
