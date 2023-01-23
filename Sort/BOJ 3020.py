@@ -25,5 +25,4 @@ answer=[]
 for i in range(h):
     answer.append(n-binary(i,down)-binary(h-i-1,up))
 answer.sort()
-print(answer)
 print(answer[0],answer.count(answer[0]))
