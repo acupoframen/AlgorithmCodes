@@ -35,6 +35,5 @@ while q:
             if found and data[ny][nx][1]>pastVal+1:
                 data[ny][nx][1]=pastVal+1
                 heapq.heappush(q,[pastVal+1,ny,nx,1])
-print(data)
 print(min(data[r][c]))
 
