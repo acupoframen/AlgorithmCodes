@@ -24,7 +24,6 @@ while oriq:
                 if changedData[i][j]=='O':
                     changedData[i][j]='X'
                     oriq.append([i,j])
-print(changedData)
 for i in range(a):
     for j in range(b):
         if changedData[i][j]=='O':
