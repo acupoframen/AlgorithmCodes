@@ -23,8 +23,6 @@ def dijkstra(num):
     return d
 answer=0
 d_x=dijkstra(x)
-print(d_x)
 for i in range(1,n+1):
-    print(dijkstra(i))
     answer=max(answer,dijkstra(i)[x]+d_x[i])
 print(answer)
