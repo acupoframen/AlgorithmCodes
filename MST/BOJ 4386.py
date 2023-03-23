@@ -19,9 +19,9 @@ def union(a,b):
     pb=find(b)
     if pa!=pb:
         if pa>pb:
-            parent[a]=pb
+            parent[pa]=pb
         else:
-            parent[b]=pa
+            parent[pb]=pa
 answer=0
 while edges:
     val,a,b=heapq.heappop(edges)
