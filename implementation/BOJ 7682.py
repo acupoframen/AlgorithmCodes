@@ -55,6 +55,10 @@ while True:
         if data.count("X")==data.count("O")+1:
             print("invalid")
             continue
+    if xcount>=1:
+        if data.count("X")==data.count("O"):
+            print("invalid")
+            continue
     if xcount+ocount==0:
         if data.count(".")==0:
             print("valid")
