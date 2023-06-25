@@ -6,7 +6,6 @@ dy=[0,0,-1,1,0,0]
 dz=[0,0,0,0,1,-1]
 def bfs(q):
     while q:
-        found=0
         i,j,k=q.popleft()
         for d in range(6):
             nx=dx[d]+i
@@ -44,4 +43,4 @@ while True:
     if answer==1e10:
         print("Trapped!")
     else:
-        print("Escaped in "+str(answer)+" minutes(s).")
+        print("Escaped in "+str(answer)+" minute(s).")
