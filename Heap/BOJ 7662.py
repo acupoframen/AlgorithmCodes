@@ -33,4 +33,4 @@ for _ in range(t):
     if not maxq and not minq:
         print("EMPTY")
     else:
-        print(minq[0][0],-maxq[0][0])
+        print(-maxq[0][0],minq[0][0])
