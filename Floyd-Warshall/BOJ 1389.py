@@ -15,8 +15,6 @@ for k in range(1,n+1):
                 data[i][j]=min(data[i][j],data[i][k]+data[k][j])
 
 answer=[]
-print(data)
 for i in range(1,n+1):
     answer.append(sum(data[i]))
-print(answer)
 print(answer.index(min(answer))+1)
