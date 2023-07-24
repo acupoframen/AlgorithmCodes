@@ -43,7 +43,6 @@ for _ in range(t):
     temp[aircon+1][0]=-1
     temp[aircon][1]=0
     data=deepcopy(temp)
-    print(data)
 answer=0
 for i in range(r):
     answer+=sum(data[i])
