@@ -8,7 +8,6 @@ dy=[0,0,-1,1]
 def search():
     global answer    
     while q:
-        print(q)
         x,y=q.popleft()
         for i in range(4):
             nx=x+dx[i]
@@ -28,6 +27,7 @@ def search():
                         answer+=1
                     elif data[nx][ny].islower():
                         num=ord(data[nx][ny])-ord('a')
+                        keyfound[num]=1
                         for x1,y1 in door[num]:
                             q.append([x1,y1])
                             visited[x1][y1]=True    
@@ -48,17 +48,18 @@ for _ in range(t):
             keyfound[num]=1
     for i in range(h):
         for j in range(w):
-            if i==0 or i==h-1 or j==0 or j==2-1:
+            if i==0 or i==h-1 or j==0 or j==w-1:
                 if data[i][j]!='*':
                     if data[i][j].isupper():
                         num=ord(data[i][j])-ord('A')
                         door[num].append([i,j])
                     else:
+                        visited[i][j]=1
                         if data[i][j]=="$":
                             answer+=1
                         elif data[i][j].islower():
                             num=ord(data[i][j])-ord('a')
-                            keyfound[num]=0
+                            keyfound[num]=1
                         q.append([i,j])
     for i in range(26):
         if keyfound[i]:
