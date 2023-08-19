@@ -32,7 +32,7 @@ for i in range(1,n//2+1):
         total2, count2=bfs([j for j in range(1,n+1) if j not in c])
         if count1+count2==n:
             answer=min(answer,abs(total1-total2))
-if answer!=1e1:
+if answer!=1e10:
     print(answer)
 else:
     print(-1)
