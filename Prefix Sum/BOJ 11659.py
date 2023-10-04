@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 n,m=map(int,input().split())
 data=list(map(int,input().split()))
 sumdata=[0]
@@ -8,5 +10,4 @@ for i in range(n):
 
 for _ in range(m):
     a,b=map(int,input().split())
-    
     print(sumdata[b]-sumdata[a-1])
