@@ -2,6 +2,10 @@ from collections import deque
 n=int(input())
 data=[0 for _ in range(n+1)]
 q=deque([1])
+if n==1:
+    print(0)
+    print(1)
+    exit(0)
 while q:
     k=q.popleft()
     if n==k+1 or n==2*k or n==3*k:
