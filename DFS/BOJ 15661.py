@@ -10,7 +10,7 @@ def dfs(i):
     if i==n:
         temp=0
         for i in range(n):
-            for j in range(n):
+            for j in range(i+1,n):
                 if visited[i] and visited[j]:
                     temp+=data[i][j]
                     temp+=data[j][i]
