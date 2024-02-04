@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(int(2*1e5+2))
 from collections import deque
 n,r=map(int,input().split())
 data=list([] for _ in range(n+1))
@@ -13,6 +15,9 @@ visited[r]=1
 while q:
     a=q.popleft()
     if 1<=len(data[a])<=2:
+        if len(data[a])==2 and a==r:
+            giga=r
+            break
         for i,j in data[a]:
             if not visited[i]:
                 q.append(i)
