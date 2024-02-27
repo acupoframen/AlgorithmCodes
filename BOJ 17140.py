@@ -22,9 +22,12 @@ def rc():
             data[j].append(0)
         data[j] = data[j][:100]
 for i in range(101):
-    if data[r-1][c-1]==k:
-        print(i)
-        break
+    try:
+        if data[r-1][c-1]==k:
+            print(i)
+            break
+    except:
+        pass
     if len(data) < len(data[0]):
         data = list(zip(*data))
         rc()
