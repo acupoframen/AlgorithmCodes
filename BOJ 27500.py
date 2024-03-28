@@ -1,26 +1,18 @@
 hp1,hp2=map(int,input().split())
 a,b,c,d=map(int,input().split())
-k=int(input())
-data=[0 for _ in range(301)]
-i=0
-while i<301:
-    a,b=input().split()
-    if b=='attack':
-        i+=4
-        if data[i]<=300:
-            data[i]=c
-        i+=1
-    elif b=='riposte':
-        for k in range(14):
-            if i+k<=300:
-                data[i+k]=-1
-            else:
-                break
-        i+=14
-        if data[i]<=300:
-            data[i]=d
-        i+=1
-dp=list(list(list([0,0,0] for _ in range(hp2)) for _ in range(hp1)) for _ in range(301))
+n=int(input())
+data=list(0 for _ in range(301))
+for i in range(n):
+    time,skill=input().split()
+    time=int(time)
+    if skill=='attack':
+        if time+5<=300:
+            data[time+5]=1
+    else:
+        for i in range(time,min(time+14,300)):
+            data[i]=-1
+        if time+15<=3000:
+            data[time+15]=2
+        
+dp=list(list(list([1e10,1e10,1e10] for _ in range(hp2)) for _ in range(hp1)) for _ in range(301))
 
-for i in range(301):
-    if data
