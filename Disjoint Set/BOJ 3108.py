@@ -25,11 +25,11 @@ for i in range(n):
     x1,y1,x2,y2=data[i]
     for j in range(i+1,n+1):
         x3, y3, x4, y4 = data[j]
-        if x3 > x1 and x2 > x4 and y3 > y1 and y2 > y4:
+        if x3>x1 and x2>x4 and y3>y1 and y2>y4:
             continue
-        if x1 > x3 and x4 > x2 and y1 > y3 and y4 > y2:
+        if x1>x3 and x4>x2 and y1>y3 and y4>y2:
             continue
-        if x3 > x2 or x1 > x4 or y3 > y2 or y1 > y4:
+        if x3>x2 or x1>x4 or y3>y2 or y1>y4:
             continue
         union(i,j)
 for i in range(n+1):
