@@ -12,9 +12,9 @@ while True:
 dist=list(-1 for _ in range(10001))
 q=deque()
 q.append(1)
+dist[1]=0
 while q:
     a=q.popleft()
-    dist[a]=0
     for i,j in data[a]:
         if dist[i]==-1:
             dist[i]=dist[a]+j
@@ -24,9 +24,9 @@ a=dist.index(max(dist))
 dist=list(-1 for _ in range(10001))
 q=deque()
 q.append(a)
+dist[a]=0
 while q:
     a=q.popleft()
-    dist[a]=0
     for i,j in data[a]:
         if dist[i]==-1:
             dist[i]=dist[a]+j
