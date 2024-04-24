@@ -17,7 +17,7 @@ while left<=right:
         temp+=(i-1)//mid
     if temp<=m: #주유소 적음. 덜 설치 가능.
         right=mid-1
-        answer=mid
+    
     else: #주유소 너무 많이 필요함. 거리를 줄여야함.
         left=mid+1
-print(answer)
+print(left)
