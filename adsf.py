@@ -1,57 +1,40 @@
-from collections import deque
-import sys
-sys.setrecursionlimit(int(1e5)+1)
-n=int(input())
-data=list(list() for _ in range(n+1))
-for i in range(n-1):
-    x,y=map(int,input().split())
-    data[x].append(y)
-    data[y].append(x)
-tree=list(list() for _ in range(n+1))
+import math
+from collections import defaultdict
 
-q=deque()
-q.append(1)
-visited=list(0 for _ in range(n+1))
-visited[1]=1
+n = int(input())
+s, answer, sumlist = [], [], []
+freq = defaultdict(int)
 
-while q:
-    node=q.popleft()
-    for i in data[node]:
-        if not visited[i]:
-            visited[i]=1
-            q.append(i)
-            tree[node].append(i)
+s=list(map(int,input().split()))
+s.sort()
 
-def play(curr,a,b,turn):
-    temp=0
-    if tree[curr]:
-        for i in tree[curr]:
-            if turn==0:
-                #내 턴이면, 내가 이기는 경우를 고름
-                if play(i,a+curr,b,1):
-                    temp=1
-            else:
-                #상대 턴이면, 내가 지는 경우를 고름
-                if not play(i,a,b+curr,0):
-                    temp=0
-                    break
-                else:
-                    temp=1
-        return temp
+answer.append(s[1])
+if n == 1:
+    
+    print(*answer)
+    exit(0)
+
+answer.append(s[2])
+if n == 2:
+    print(*answer)
+    exit(0)
+sumlist.append(0)
+sumlist.append(s[1])
+sumlist.append(s[2])
+sumlist.append(s[1] + s[2])
+freq[s[1] + s[2]] += 1
+for i in range(3, len(s)):
+    if len(answer)==n:
+        break
+    if freq[s[i]] == 0:
+        newsumlist=sumlist[:]
+        for j in range(len(sumlist)):
+            y=sumlist[j]+s[i]
+            newsumlist.append(y)
+            if j != 0:
+                freq[y] += 1
+        sumlist = newsumlist
+        answer.append(s[i])
     else:
-        if turn==0:
-            if a+curr>=b:
-                return 1
-            else:
-                return 0
-        else:
-            if a>=b+curr:
-                return 1
-            else:
-                return 0
-
-for i in range(1,n+1):
-    if play(i,0,0,0):
-        print(1)
-    else:
-        print(0)
+        freq[s[i]]-= 1
+print(*sorted(answer))
