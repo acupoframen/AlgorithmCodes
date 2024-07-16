@@ -1,40 +1,41 @@
-import math
-from collections import defaultdict
+def find(x, parent):
+    if parent[x] != x:
+        parent[x] = find(parent[x], parent)
+    return parent[x]
 
-n = int(input())
-s, answer, sumlist = [], [], []
-freq = defaultdict(int)
+def union(x, y, parent, size):
+    rootX = find(x, parent)
+    rootY = find(y, parent)
+    if rootX != rootY:
+        if size[rootX] < size[rootY]:
+            rootX, rootY = rootY, rootX
+        parent[rootY] = rootX
+        size[rootX] += size[rootY]
 
-s=list(map(int,input().split()))
-s.sort()
+def min_red_edges(n, data):
+    parent = list(range(n))
+    size = [1] * n
+    answer = 0
 
-answer.append(s[1])
-if n == 1:
-    
-    print(*answer)
-    exit(0)
+    for color in data:
+        roots = list(set(find(i, parent) for i in range(n)))
+        if len(roots) == 1:
+            break
 
-answer.append(s[2])
-if n == 2:
-    print(*answer)
-    exit(0)
-sumlist.append(0)
-sumlist.append(s[1])
-sumlist.append(s[2])
-sumlist.append(s[1] + s[2])
-freq[s[1] + s[2]] += 1
-for i in range(3, len(s)):
-    if len(answer)==n:
-        break
-    if freq[s[i]] == 0:
-        newsumlist=sumlist[:]
-        for j in range(len(sumlist)):
-            y=sumlist[j]+s[i]
-            newsumlist.append(y)
-            if j != 0:
-                freq[y] += 1
-        sumlist = newsumlist
-        answer.append(s[i])
-    else:
-        freq[s[i]]-= 1
-print(*sorted(answer))
+        roots.sort(key=lambda x: size[x])
+
+        if color == 0:
+            u, v = roots[0], roots[1]
+            answer += size[u] * size[v]
+        else:
+            u, v = roots[0], roots[1]
+
+        union(u, v, parent, size)
+
+    return answer
+
+# Test input
+n = 5
+data = [0, 0, 0, 1]
+output = min_red_edges(n, data)
+print(output)
