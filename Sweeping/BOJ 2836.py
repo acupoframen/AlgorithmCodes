@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 data=[]
 n,m=map(int,input().split())
 for _ in range(n):
@@ -7,11 +9,12 @@ for _ in range(n):
 
 data.sort(key= lambda x: -x[1])
 temp=[]
+if not data:
+    print(m)
+    exit(0)
 tempstart, tempend= data[0]
 for i in range(1,len(data)):
-
-    start, end=data[i]
-
+    start,end=data[i]
     if tempstart<=end:
         tempstart=min(tempstart,start)
     else:
