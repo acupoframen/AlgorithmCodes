@@ -3,6 +3,7 @@
         "stack": "cpp",
         "iostream": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "iosfwd": "cpp"
     }
 }
