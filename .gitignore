@@ -9,3 +9,4 @@ out/
 *.iws
 asdf.*
 **/*.exe
+.vscode/settings.json
