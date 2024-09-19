@@ -1,5 +1,8 @@
+import sys
+input=sys.stdin.readline
+sys.setrecursionlimit(int(1e4))
 n,m=map(int,input().split())
-data=list(list(map(int,input().split())) for _ in range(n))
+data=list(list(map(int,input().strip().split())) for _ in range(n))
 dx=[0,0,-1,1]
 dy=[1,-1,0,0]
 dp=list(list(-1 for _ in range(m)) for _ in range(n))
