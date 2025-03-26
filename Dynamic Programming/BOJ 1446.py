@@ -2,7 +2,7 @@ n,d=map(int,input().split())
 dp=list(i for i in range(d+1))
 dp[0]=0
 data=list(list(map(int,input().split())) for _ in range(n))
-data.sort(key=lambda x:(x[0],x[1],-x[2]))
+data.sort()
 for j in range(n):
     start,end,leng=data[j]
     if end>d:
